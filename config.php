@@ -8,7 +8,7 @@ define("TIME_ZONE", '-5'); // Timezones
 define("PIXMICAT_LANGUAGE", 'en_US'); // Language (available languages in /lib/lang/)
 define("HTTP_UPLOAD_DIFF", 50); 
 ini_set("memory_limit", '128M'); // Maximum allowed memory usage by php 
-define("STATIC_URL", 'https://k.kncdn.org/global/'); // Where static files are stored
+define("STATIC_URL", 'src/'); // Where static files are stored
 define("ACTION_LOG", 'audit.log.txt');
 
 // FileIO settings 
@@ -39,8 +39,8 @@ define("PHP_SELF", 'koko.php'); // Name of the main script
 define("PHP_SELF2", 'index.html'); // Defines PHP_SELF
 define("PHP_EXT", '.html'); // File extension for static pages
 define("TITLE", 'Kokonotsuba Board'); // Board Title
-define("TITLESUB", ''); // Board Title
-define("TITLEIMG", ''); // Board Title
+define("TITLESUB", ''); // Board Subtitle
+define("TITLEIMG", ''); // Board Banner
 define("HOME", 'index.html'); // What the [Home] button links to
 define("TOP_LINKS", @file_get_contents('toplinks.txt')); // Additional links
 define("IDSEED", 'setrandom'); // ID generation seed
@@ -58,7 +58,7 @@ define("ADMIN_HASH", array('')); // Administrator password
 define("MOD_HASH", array('')); // Moderator password
 define("JANITOR_HASH", array('')); ///
 // Capcode formats (put '%s' where you want the original name)
-define("JCAPCODE_FMT", '%s');
+define("JCAPCODE_FMT", '%s (Janny)');
 define("MCAPCODE_FMT", '<font color="#770099">%s ## Mod</font>');
 define("ACAPCODE_FMT", '<font color="#FF101A">%s ## Admin</font>');
 // Footer at the bottom of the page
@@ -92,6 +92,7 @@ $PROXYHEADERlist=array(
 	'HTTP_FORWARDED');
 define("TEXTBOARD_ONLY", 0); // Completely disables all file features
 define("USE_PREVIEW", 0); // BROKEN! 
+// Why the fuck is this here then?
 define("FORTUNES", array( // Used for fortune function, selected at random.
 	'Your true waifu will reveal herself',
 	'Only time will tell',
