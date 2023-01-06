@@ -131,6 +131,7 @@
 	<center class="footer">
 		{$FOOTER}
 		{$FOOTTEXT}
+		credits to heyuri.net
 	</center>
 	<a name="bottom"></a>
     </body>
