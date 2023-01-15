@@ -179,7 +179,9 @@ function auto_link_callback2($matches) {
 		return '<a href="'.REF_URL.'?'.$URL_Encode.'" target="_blank" rel="nofollow noreferrer">'.$URL.'</a>';
 	}
 	// Also works if its blank!
+	else {
 	return '<a href="'.$URL.'" target="_blank" rel="nofollow noreferrer">'.$URL.'</a>';
+	}
 }
 function auto_link_callback($matches){
 	return (strtolower($matches[3]) == "</a>") ? $matches[0] : preg_replace_callback('/([a-zA-Z]+)(:\/\/[\w\+\$\;\?\.\{\}%,!#~*\/:@&=_-]+)/u', 'auto_link_callback2', $matches[0]);
