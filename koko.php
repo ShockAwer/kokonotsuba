@@ -6,7 +6,7 @@ define("PIXMICAT_VER", 'Koko BBS Release 1'); // Version information text
 YOU MUST GIVE CREDIT TO WWW.HEYURI.NET ON YOUR BBS IF YOU ARE PLANNING TO USE THIS SOFTWARE.
 
 */
-if (file_exists('.lockdown')&&!(valid()>=LEV_JANITOR)) {
+if (file_exists('.lockdown') && valid() < LEV_JANITOR) {
 	die('Posting temporarily disabled. Come back later!');
 }
 
@@ -650,7 +650,7 @@ function regist($preview=false){
 		$name = '<font color="'.$capcode['color'].'">'.$name.'<b>'.$capcode['cap'].'</b>'.'</font>';
 	}
 	
-	if ($email == "vipcode" && defined('VIPDEF')) {
+	if(stristr($email, 'vipcode') && defined('VIPDEF')) {
 			$name .= ' <img src="'.STATIC_URL.'vip.gif" title="This user is a VIP user" style="vertical-align: middle;margin-top: -2px;" alt="VIP">'; 
 	}
 	$email = preg_replace('/^vipcode$/i', '', $email);
@@ -724,7 +724,7 @@ function regist($preview=false){
 	// Continuous submission / same additional image check
 	$checkcount = 50; // Check 50 by default
 	$pwdc = substr(md5($pwdc), 2, 8); // Cookies Password
-	if (valid()>=LEV_MODERATOR) {
+	if (valid()<LEV_MODERATOR or defined('VIPDEF'))  {
 		if($PIO->isSuccessivePost($checkcount, $com, $time, $pass, $pwdc, $host, $upfile_name))
 			error(_T('regist_successivepost'), $dest); // Continuous submission check
 		if($dest){ if($PIO->isDuplicateAttachment($checkcount, $md5chksum)) error(_T('regist_duplicatefile'), $dest); } // Same additional image file check
